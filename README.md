@@ -13,3 +13,33 @@
 - Отчёты: Playwright HTML, JUnit, Allure.
 - Линтинг и автоформатирование: ESLint + Prettier.
 
+## Быстрый старт
+```bash
+npm ci
+npx playwright install --with-deps
+cp .env.example .env
+npm run all          # lint + tests
+npm run test:report  # открыть HTML-отчёт
+# Allure:
+npm run allure:report && npm run allure:open
+Скрипты
+npm test             # запустить тесты
+npm run test:headed  # запуск в headed-режиме
+npm run test:report  # открыть HTML-отчёт Playwright
+npm run all          # lint + test
+npm run lint         # ESLint
+npm run format       # Prettier
+npm run allure:report && npm run allure:open  # генерация/просмотр Allure
+Конфигурация окружения
+Используется .env (пример в .env.example):
+PLAYWRIGHT_BASE_URL=https://demo.playwright.dev
+AUTH_USERNAME=foo
+AUTH_PASSWORD=bar
+Структура проекта
+tests/
+  fixtures/           # расширяемые фикстуры
+  pageObjects/        # POM
+  specs/              # UI, API, a11y, файлы, моки сети и т.д.
+  static/             # локальные страницы для upload/download
+.github/workflows/    # GitHub Actions
+
