@@ -1,8 +1,11 @@
-import { test } from '@playwright/test';
-import { injectAxe, checkA11y } from 'playwright-axe';
+import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
-test('-skip A11y: главная playwright.dev без критических нарушений', async ({ page }) => {
+test('A11y: главная playwright.dev без критических нарушений', async ({ page }) => {
   await page.goto('https://playwright.dev/');
-  await injectAxe(page);
-  await checkA11y(page);
+  const results = await new AxeBuilder({ page }).analyze();
+
+  // Падаем только на serious/critical нарушениях, чтобы избежать ложных срабатываний
+  const serious = results.violations.filter(v => ['serious','critical'].includes(v.impact || ''));
+  expect(serious).toHaveLength(0);
 });
