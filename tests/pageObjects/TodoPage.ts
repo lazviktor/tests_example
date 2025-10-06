@@ -36,6 +36,20 @@ export class TodoPage {
     await item.locator('.toggle').check();
   }
 
+  async destroy(text: string) {
+    const item = this.page.locator('.view', { hasText: text });
+    await item.hover();
+    await item.locator('.destroy').click();
+  }
+
+  async edit(oldText: string, newText: string) {
+    const item = this.page.locator('.view', { hasText: oldText });
+    await item.dblclick();
+    const editor = this.page.locator('.todo-list li.editing .edit');
+    await editor.fill(newText);
+    await editor.press('Enter');
+  }
+
   async showAll() { await this.filterAll.click(); }
   async showActive() { await this.filterActive.click(); }
   async showCompleted() { await this.filterCompleted.click(); }

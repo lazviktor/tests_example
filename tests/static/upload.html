@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Upload demo</title></head>
+<body>
+  <h1>Upload</h1>
+  <form>
+    <input type="file" id="file" />
+    <span id="name"></span>
+  </form>
+  <script>
+    const input = document.getElementById('file');
+    const span = document.getElementById('name');
+    input.addEventListener('change', () => {
+      span.textContent = input.files[0] ? input.files[0].name : '';
+    });
+  </script>
+</body></html>

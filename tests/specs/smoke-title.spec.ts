@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
-
-test('Playwright site is reachable', async ({ page }) => {
+test('Smoke: playwright.dev загружается и имеет заголовок', async ({ page }) => {
   await page.goto('https://playwright.dev/');
   await expect(page).toHaveTitle(/Playwright/);
 });

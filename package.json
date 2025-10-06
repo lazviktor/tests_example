@@ -1,14 +1,29 @@
 {
-  "name": "playwright-e2e-template",
-  "version": "1.0.0",
+  "name": "playwright-e2e-ultimate",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
-    "report:open": "playwright show-report",
-    "codegen": "playwright codegen https://demo.playwright.dev/todomvc"
+    "test:report": "playwright show-report",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
+    "format": "prettier --write .",
+    "all": "npm run lint && npm test",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
   },
   "devDependencies": {
-    "@playwright/test": "^1.48.0"
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.7.5",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.11.1",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "prettier": "^3.3.3",
+    "axe-core": "^4.10.0",
+    "playwright-axe": "^1.4.0",
+    "allure-playwright": "^3.0.0-beta.7",
+    "allure-commandline": "^2.29.0"
   }
 }
