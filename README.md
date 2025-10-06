@@ -1,32 +1,15 @@
-# Playwright E2E Ultimate
+# Playwright E2E
 
-Полноценный набор для техскрина: 20+ тестов (UI, API, a11y, файлы, стореджи, мок сети), POM, `.env`, Allure, JUnit, HTML, CI-артефакты.
+![CI](https://github.com/lazviktor/tests_example/actions/workflows/playwright.yml/badge.svg)
 
-![CI](https://github.com/USERNAME/REPO/actions/workflows/playwright.yml/badge.svg)
+Набор сквозных E2E-тестов на Playwright (TypeScript) с аккуратной структурой проекта, отчётами (HTML/JUnit/Allure), конфигурацией через `.env` и готовым CI на GitHub Actions.
 
-## Быстрый старт
-```bash
-npm ci
-npx playwright install --with-deps
-npm run all           # lint + tests
-npm run test:report   # открыть HTML-отчёт
-npm run allure:report && npm run allure:open
-```
+## Возможности
+- UI-тесты с Page Object Model.
+- API-тесты на встроенном `request`.
+- Проверки доступности (a11y) на базе `axe`.
+- Моки сети (`page.route`) и сценарии с файлами (upload/download).
+- Визуальные снапшоты и простой перф-смоук.
+- Отчёты: Playwright HTML, JUnit, Allure.
+- Линтинг и автоформатирование: ESLint + Prettier.
 
-## Переменные окружения
-- `PLAYWRIGHT_BASE_URL` — базовый URL (по умолчанию https://demo.playwright.dev).  
-- `AUTH_USERNAME`, `AUTH_PASSWORD` — пример для basic-auth API.
-Скопируйте `.env.example` → `.env` и правьте поля.
-
-## Структура
-```
-tests/
-  fixtures/
-  pageObjects/
-  specs/
-  static/           # локальные страницы для upload/download без внешних зависимостей
-  utils/
-```
-
-## Предупреждение о рисках
-В некоторых тестах используются публичные ресурсы (`demo.playwright.dev`, `httpbin.org`, `playwright.dev`). Они могут измениться. Для абсолютной стабильности: укажите свой `PLAYWRIGHT_BASE_URL` и используйте мок‑сеть.
