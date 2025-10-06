@@ -1,0 +1,14 @@
+{
+  "name": "playwright-e2e-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report:open": "playwright show-report",
+    "codegen": "playwright codegen https://demo.playwright.dev/todomvc"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
