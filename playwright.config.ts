@@ -32,6 +32,6 @@ export default defineConfig({
     { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
   outputDir: 'test-results',
-  grepInvert: process.env.CI ? [/@flaky/] : undefined,
+  grepInvert: process.env.CI ? [/@(flaky|ci-skip)/] : undefined,
   snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}{ext}'
 });
