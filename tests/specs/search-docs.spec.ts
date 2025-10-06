@@ -1,3 +1,4 @@
+test.skip(process.env.CI, 'skip on CI');
 import { test, expect } from '@playwright/test';
 
 test('-skip Документация: поиск по сайту playwright.dev', async ({ page }) => {

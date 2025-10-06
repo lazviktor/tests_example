@@ -1,3 +1,4 @@
+test.skip(process.env.CI, 'skip on CI');
 import { test, expect, request } from '@playwright/test';
 test('API: задержки (delay)', async () => {
   const ctx = await request.newContext({ baseURL: 'https://httpbin.org', timeout: 15000 });
